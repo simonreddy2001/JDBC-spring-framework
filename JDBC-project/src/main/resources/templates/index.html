@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<link rel="stylesheet" th:href="@{main.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <div>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                </div>
+
+                <li>
+                    <a href="/artist/search">Search Artist</a>
+                </li>
+                <li>
+                    <a href="/track/search">Search Track</a>
+                </li>
+                <li>
+                    <a href="/genre/search">Search Genre</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <article class="info-section">
+            <h1>About the App</h1>
+            <p>This is a basic example of using Thymeleaf to create a monolithic application with Java.
+                We are using the Chinook_SQLite database as a data source. The functionality of the site is
+                fairly straight forward, we can view some randomly generated artists, tracks and genres.</p>
+        </article>
+
+        <section class="article-sections">
+
+            <article class="genres">
+                <h3>Genres 🎸</h3>
+                <ul th:each="genres: ${genres}">
+                    <li th:text="${genres.getName()}"></li>
+                </ul>
+            </article>
+
+            <article class="tracks">
+                <h3>Tracks 🎵</h3>
+                <ul th:each="tracks: ${tracks}">
+                    <li th:text="${tracks.getName()}"></li>
+                </ul>
+
+
+            </article>
+
+            <article class="artists">
+                <h3>Artists 🧑‍🎤</h3>
+                <ul th:each="artists: ${artists}">
+                    <li th:text="${artists.getName()}"></li>
+                </ul>
+            </article>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

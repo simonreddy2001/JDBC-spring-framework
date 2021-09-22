@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{main.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Artist</title>
+
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <nav class="nav">
+            <ul class="ul">
+                <div>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                </div>
+                <li>
+                    <a href="/artist/search">Search Artist</a>
+                </li>
+                <li>
+                    <a href="/track/search">Search Track</a>
+                </li>
+                <li>
+                    <a href="/genre/search">Search Genre</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="search-track">
+
+        <article class="text">
+            <h1>You can search artists here!</h1>
+        </article>
+
+        <form action="#" th:action="@{/artist/search}" method="post">
+            <input name="searchTerm" type="text" th:value="${searchTerm}" placeholder="Search artist..."
+                   class="search-bar">
+            <input type="submit" class="search-btn" value="Search Artist">
+
+        </form>
+
+        <article class="display-search-result">
+            <h2 th:if="${success}" th:text="'You searched for: ' + ${searchTerm} "></h2>
+            <table class="tracks">
+                <thead>
+                <tr>
+                    <th>Track</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Genre</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr th:each="trackInfo: ${trackInfo}">
+                    <td th:text="${trackInfo.getTrackName()}"></td>
+                    <td th:text="${trackInfo.getArtistName()}"></td>
+                    <td th:text="${trackInfo.getAlbumTitle()}"></td>
+                    <td th:text="${trackInfo.getGenre()}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </article>
+
+    </section>
+</div>
+</body>
+</html>
