@@ -1,12 +1,12 @@
 package com.experis.JDBCproject.models;
 
 public class Track {
-    private final int TrackId;
-    private final String Name;
+    private int TrackId;
+    private String Name;
 
     public Track(int trackId, String name) {
-        TrackId = trackId;
-        Name = name;
+        this.TrackId = trackId;
+        this.Name = name;
     }
 
     public int getTrackId() {
@@ -15,5 +15,13 @@ public class Track {
 
     public String getName() {
         return Name;
+    }
+
+    public void setTrackId(int trackId) {
+        TrackId = trackId;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 }

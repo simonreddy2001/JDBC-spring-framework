@@ -2,7 +2,6 @@ package com.experis.JDBCproject.data_access;
 
 import com.experis.JDBCproject.log.logToConsole;
 import com.experis.JDBCproject.models.Genre;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -52,7 +51,6 @@ public class GenreRepository {
         }
         return genres;
     }
-
 
     /**
      * Get 5 random genres.

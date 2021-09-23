@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th=http://www.thymeleaf.org>
-<link rel="stylesheet" th:href="@{main.css}">
+<link rel="stylesheet" th:href="@{/CSS/main.css}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
 
 <head>
     <meta charset="UTF-8">
@@ -21,11 +20,11 @@
     <header>
         <nav class="nav">
             <ul class="ul">
-                <div>
+
                     <li>
                         <a href="/">Home</a>
                     </li>
-                </div>
+
 
                 <li>
                     <a href="/artist/search">Search Artist</a>
@@ -60,17 +59,15 @@
 
             <article class="tracks">
                 <h3>Tracks 🎵</h3>
-                <ul th:each="tracks: ${tracks}">
-                    <li th:text="${tracks.getName()}"></li>
+                <ul th:each="track: ${tracks}">
+                    <li th:text="${track.getName()}"></li>
                 </ul>
-
-
             </article>
 
             <article class="artists">
                 <h3>Artists 🧑‍🎤</h3>
-                <ul th:each="artists: ${artists}">
-                    <li th:text="${artists.getName()}"></li>
+                <ul th:each="artist: ${artists}">
+                    <li th:text="${artist.getName()}"></li>
                 </ul>
             </article>
         </section>

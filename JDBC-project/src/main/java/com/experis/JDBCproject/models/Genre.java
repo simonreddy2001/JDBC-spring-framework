@@ -5,8 +5,8 @@ public class Genre {
     private String Name;
 
     public Genre(int genreId, String name) {
-        GenreId = genreId;
-        Name = name;
+        this.GenreId = genreId;
+        this.Name = name;
     }
 
     public int getGenreId() {

@@ -1,12 +1,12 @@
 package com.experis.JDBCproject.models;
 
 public class Artist {
-    private final int ArtistId;
-    private final String Name;
+    private int ArtistId;
+    private String Name;
 
     public Artist(int artistId, String name) {
-        ArtistId = artistId;
-        Name = name;
+        this.ArtistId = artistId;
+        this.Name = name;
     }
 
     public int getArtistId() {
@@ -15,5 +15,13 @@ public class Artist {
 
     public String getName() {
         return Name;
+    }
+
+    public void setArtistId(int artistId) {
+        ArtistId = artistId;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 }
