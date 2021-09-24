@@ -41,10 +41,10 @@
             <h1>You can search tracks here!</h1>
         </article>
 
-        <form action="#" th:action="@{/track/search}" method="post">
-            <input name="searchTerm" type="text" th:value="${searchTerm}" placeholder="Search track..."
+        <form action="#" th:action="@{/genre/search}" method="post">
+            <input name="searchTerm" type="text" th:value="${searchTerm}" placeholder="Search genre..."
                    class="search-bar">
-            <input type="submit" class="search-btn" value="Search Track">
+            <input type="submit" class="search-btn" value="Search Genre">
 
         </form>
 
@@ -53,19 +53,20 @@
             <table class="tracks">
                 <thead>
                 <tr>
+                    <th>Genre</th>
                     <th>Track</th>
                     <th>Artist</th>
                     <th>Album</th>
-                    <th>Genre</th>
                 </tr>
 
                 </thead>
                 <tbody>
-                <tr th:each="trackInfo: ${trackInfo}">
-                    <td th:text="${trackInfo.getTrackName()}"></td>
-                    <td th:text="${trackInfo.getArtistName()}"></td>
-                    <td th:text="${trackInfo.getAlbumTitle()}"></td>
-                    <td th:text="${trackInfo.getGenre()}"></td>
+                <tr th:each="genreInfo: ${genreInfo}">
+                    <td th:text="${genreInfo.getGenre()}"></td>
+                    <td th:text="${genreInfo.getTrackName()}"></td>
+                    <td th:text="${genreInfo.getArtistName()}"></td>
+                    <td th:text="${genreInfo.getAlbumTitle()}"></td>
+
                 </tr>
 
                 </tbody>

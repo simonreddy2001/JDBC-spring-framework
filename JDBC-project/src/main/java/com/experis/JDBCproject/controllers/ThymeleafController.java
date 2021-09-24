@@ -1,9 +1,6 @@
 package com.experis.JDBCproject.controllers;
 
-import com.experis.JDBCproject.data_access.ArtistRepository;
-import com.experis.JDBCproject.data_access.GenreRepository;
-import com.experis.JDBCproject.data_access.TrackInfoRepository;
-import com.experis.JDBCproject.data_access.TrackRepository;
+import com.experis.JDBCproject.data_access.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +14,8 @@ public class ThymeleafController {
     private final TrackRepository trackRepository = new TrackRepository();
     private final ArtistRepository artistRepository = new ArtistRepository();
     private final TrackInfoRepository trackInfoRepository = new TrackInfoRepository();
+    private final GenreInfoRepository genreInfoRepository = new GenreInfoRepository();
+    private final ArtistInfoRepository artistInfoRepository = new ArtistInfoRepository();
 
     @GetMapping("/")
     public String homePage(Model model) {
@@ -52,7 +51,7 @@ public class ThymeleafController {
 
         model.addAttribute("success", true);
         model.addAttribute("searchTerm", searchTerm);
-        model.addAttribute("trackInfo", trackInfoRepository.getTrackInfo(searchTerm));
+        model.addAttribute("genreInfo", genreInfoRepository.getGenreInfo(searchTerm));
         return "search-genre";
     }
     @RequestMapping(value = "/artist/search", method = RequestMethod.POST)
@@ -60,7 +59,7 @@ public class ThymeleafController {
 
         model.addAttribute("success", true);
         model.addAttribute("searchTerm", searchTerm);
-        model.addAttribute("trackInfo", trackInfoRepository.getTrackInfo(searchTerm));
+        model.addAttribute("artistInfo", artistInfoRepository.getArtistInfo(searchTerm));
         return "search-artist";
     }
 }

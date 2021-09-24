@@ -53,19 +53,19 @@
             <table class="tracks">
                 <thead>
                 <tr>
-                    <th>Track</th>
                     <th>Artist</th>
+                    <th>Track</th>
                     <th>Album</th>
                     <th>Genre</th>
                 </tr>
 
                 </thead>
                 <tbody>
-                <tr th:each="trackInfo: ${trackInfo}">
-                    <td th:text="${trackInfo.getTrackName()}"></td>
-                    <td th:text="${trackInfo.getArtistName()}"></td>
-                    <td th:text="${trackInfo.getAlbumTitle()}"></td>
-                    <td th:text="${trackInfo.getGenre()}"></td>
+                <tr th:each="artistInfo: ${artistInfo}">
+                    <td th:text="${artistInfo.getArtistName()}"></td>
+                    <td th:text="${artistInfo.getTrackName()}"></td>
+                    <td th:text="${artistInfo.getAlbumTitle()}"></td>
+                    <td th:text="${artistInfo.getGenre()}"></td>
                 </tr>
 
                 </tbody>
